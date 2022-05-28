@@ -1,0 +1,4 @@
+while true; do
+       feh -z --bg-fill ~/wallpaper/*
+       sleep 120
+done

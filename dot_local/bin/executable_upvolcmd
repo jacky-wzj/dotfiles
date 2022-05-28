@@ -1,0 +1,1 @@
+pamixer -i 5 && kill -56 $(pidof dwmblocks)

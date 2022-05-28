@@ -1,0 +1,58 @@
+set cleaner ~/.config/lf/cleaner
+set previewer ~/.config/lf/preview
+set ratios 1:2:3
+set hidden true
+
+# define a custom 'open' command
+cmd open $lf-open $fx
+map o open
+
+cmd fzf_lf ${{
+    res="$(fd . -tf -tl -ts -tp --hidden | fzf --reverse --header='Jump to file' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+
+}}
+
+cmd fzf_jump ${{
+#    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd . --hidden --type d --exclude node_modules --exclude .git| fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_search ${{
+    res="$( \
+	RG_PREFIX="rg  --hidden --column --line-number --no-heading --color=always --smart-case"
+	INITIAL_QUERY="${*:-}"
+	IFS=: read -ra selected < <(
+	  FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
+	  fzf --ansi \
+	      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+	      --disabled --query "$INITIAL_QUERY" \
+	      --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+	      --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)" \
+	      --bind "ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-f)" \
+	      --prompt '1. Ripgrep> ' \
+	      --delimiter : \
+	      --header '╱ CTRL-R (Ripgrep mode) ╱ CTRL-F (fzf mode) ╱' \
+	      --preview 'bat --color=always {1} --highlight-line {2}' \
+	      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+	)
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+map gs :fzf_search
+map <c-f> :fzf_jump
+map f fzf_lf 
+
+map gh cd ~
+map gd cd ~/workspace
+map gc cd ~/.config
+map gb cd ~/.local/bin

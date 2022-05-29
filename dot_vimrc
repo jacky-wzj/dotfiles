@@ -22,7 +22,7 @@ set laststatus=2 "总是显示状态栏
 set termguicolors
 " ==========================  Search & Replace =================================
 set ignorecase "搜索的时候大小写不敏感
-
+set clipboard+=unnamedplus
 " ========================== The width of Tap ======================================
 set tabstop=2 "设置 tab 宽度为2
 set shiftwidth=2  "按退格键时可以一次删除2个空格
@@ -33,6 +33,8 @@ set smarttab
 
 " ========================== key mapping ======================================
 let mapleader = ","
+map <silent><leader>y "*y
+map <silent><leader>p "*p
 map <silent><c-k> <C-w><Up>
 map <silent><c-j> <C-w><Down>
 map <silent><c-l> <C-w><Right>
@@ -350,7 +352,6 @@ let g:fzf_colors =
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-" let g:fzf_preview_window = [] "关闭预览,因为预览比较卡
 "======================= TComments ======================
 let g:tcomment_maps = 0 "注释掉自带的映射,原映射搞的太多太复杂了
 nmap <leader>;c <Plug>TComment_<c-_><c-_>

@@ -80,7 +80,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'pseewald/vim-anyfold'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'mg979/vim-visual-multi'
-Plug 'git@github.com:uiiaoo/java-syntax.vim.git'
+Plug 'uiiaoo/java-syntax.vim'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 

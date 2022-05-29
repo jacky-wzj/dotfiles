@@ -38,7 +38,8 @@ case "$1" in
     ;;
   *.pdf|*.ps|*.eps|*.djvu|*.djv|*.epub|*.cb[zr7t])
     if [ -n "$DISPLAY" ]; then
-      spawn zathura -- "$@"
+      # spawn zathura -- "$@"
+      exec google-chrome-stable -- "$@"
     fi
     ;;
   *.od[cbdfgipstm]|*.odft|*.ot[cgipsth]|*.do[ct]|*.do[ct]x|*.p[po]t|*.p[po]tx|\

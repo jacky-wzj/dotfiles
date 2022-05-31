@@ -1,5 +1,5 @@
 # 输入法
-export QT_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="google-chrome-stable"
@@ -31,4 +31,5 @@ export PATH=$PATH:/home/jacky/workspace/dwmblocks-async/dotfiles/.local/bin/stat
 dwmblocks &
 # gocaudices  &
 
-
+# 锁屏
+xscreensaver -no-splash &

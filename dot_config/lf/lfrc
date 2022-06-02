@@ -52,7 +52,7 @@ map gs :fzf_search
 map <c-f> :fzf_jump
 map f fzf_lf 
 
-map gh cd ~
-map gd cd ~/workspace
-map gc cd ~/.config
-map gb cd ~/.local/bin
+map <c-j> cd ~
+map <c-w> cd ~/workspace
+/* map gc cd ~/.config */
+/* map gb cd ~/.local/bin */

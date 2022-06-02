@@ -6,5 +6,13 @@
   "java.format.enabled":true,
   "project.rootPatterns":[".git","pom.xml"],
   "coc.preferences.rootPatterns":[".vimproject",".git",".project",".hg",".projections.json"],
-  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:/home/jacky/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar"
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:/home/jacky/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar",
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
 }

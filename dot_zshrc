@@ -126,7 +126,7 @@ LFCD="/home/jacky/.config/lf/lfcd.sh"                                #  pre-buil
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^o' 'lfcd^M'
 bindkey -s '^n' 'nvim $(fzf)^M'
 bindkey -s '^j' 'cd ~^M'
 bindkey -s '^w' 'cd ~/workspace^M'

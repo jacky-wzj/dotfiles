@@ -6,7 +6,7 @@ set cursorcolumn
 set encoding=UTF-8
 set langmenu=UTF-8
 set guifont=JetBrainsMono\ Nerd\ Font:h12
-" set guifont=Ubuntu:h12
+" set guifont=Ubuntu:h32
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8 "只对终端影响(默认
 set ffs=unix,dos,mac "use UNIX as the standard file type
@@ -33,6 +33,7 @@ set smarttab
 
 " ========================== key mapping ======================================
 let mapleader = ","
+nmap <silent><leader>n :bnext<CR>
 map <silent><leader>y "+y
 map <silent><leader>p "+p
 map <silent><c-k> <C-w><Up>
@@ -47,18 +48,19 @@ map <silent><leader>/n :NERDTreeToggle<CR>
 " map <silent><leader>rr :NERDTree %:p:h<CR>    "刷新 NERDTree 到当前目录
 nmap <silent><leader>/t :TagbarToggle<CR> 
 " nmap <F8> :TagbarToggle<CR>
-nmap <silent><leader>/g :GundoToggle<CR>
-nnoremap <silent><leader>nh :nohl<CR>
+" nmap <silent><leader>/g :GundoToggle<CR>
+nnoremap <silent><c-h> :nohl<CR>
 " nmap <silent><c-p> :Files!<CR>
 nmap <silent><c-p> :Files<CR>
-nmap <silent><leader>/b :BLines<CR>
-nmap <silent><leader>// :Lines<CR>
-nmap <silent><leader>/gc :Commits<CR>
-nmap <silent><leader>/gb :BCommits<CR>
-nmap <silent><leader>/rg :Rg<CR>
+" nmap <silent><leader>/b :BLines<CR>
+" nmap <silent><leader>/ :Lines<CR>
+" nmap <silent><leader>/gc :Commits<CR>
+" nmap <silent><leader>/gb :BCommits<CR>
+nmap <silent><leader>// :Rg<CR>
 " ========================== VimPlug ======================================
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree' 
 "Plug 'kien/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons' "增加符号标识,依赖 nerd-fonts
@@ -97,6 +99,11 @@ colorscheme gruvbox
 " colorscheme solarized
 " =====================Customize ==============
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:tagbar_position = 'left'
 let g:vim_markdown_folding_disabled = 1 "行数较多的时候折叠会导致中文输入卡，因此需要关闭vim-markdown的折叠功能
 let g:vim_markdown_conceal = 0

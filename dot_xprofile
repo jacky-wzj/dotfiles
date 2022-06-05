@@ -3,6 +3,7 @@ export QT_IM_MODULE=fcitx
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="google-chrome-stable"
+# export PAGER="google-chrome-stable"
 
 export PATH=$PATH:$HOME/.local/bin
 
@@ -33,3 +34,5 @@ dwmblocks &
 
 # 锁屏
 xscreensaver -no-splash &
+
+# xrandr --dpi 120

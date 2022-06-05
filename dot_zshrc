@@ -77,7 +77,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=( 
+  z
+  vi-mode
+  sudo
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 # plugins=(
 #     git
 #     bundler
@@ -117,9 +123,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# alias
+# proxy
+alias proxy-corp="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 QC@192.168.199.224"    
 alias proxy-login="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 root@47.240.64.108"
-alias n=nvim
 
 # lf
 LFCD="/home/jacky/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
@@ -127,14 +133,26 @@ if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
 bindkey -s '^o' 'lfcd^M'
-bindkey -s '^n' 'nvim $(fzf)^M'
-bindkey -s '^j' 'cd ~^M'
-bindkey -s '^w' 'cd ~/workspace^M'
 
+# fzf
 export FZF_DEFAULT_OPTS="--height=95% --layout=reverse --info=inline --border --margin=1  --padding=1 --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_DEFAULT_COMMAND="fd --follow  --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
+# nodejs yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# alias
+alias n=nvim
+
+# git
+alias ga='git add'
+alias gcb='git checkout -b'
+alias gc='git commit -v'
+alias gd='git diff'
+alias gl='git pull'
+alias gp='git push'

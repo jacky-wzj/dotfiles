@@ -125,8 +125,10 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # proxy
-alias proxy-corp="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 QC@192.168.199.224"    
-alias proxy-login="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 root@47.240.64.108"
+# alias proxy-corp="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 xmly@47.240.64.108"    
+# alias proxy-login="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 root@47.240.64.108"
+alias proxy-corp="autossh -M 8880 -CD 8888  xmly@47.240.64.108 -p17777 -v"    
+alias proxy-login="autossh -M 7770 -CD 7777 root@47.240.64.108 -v"
 
 # lf
 LFCD="/home/jacky/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path

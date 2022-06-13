@@ -54,5 +54,3 @@ map f fzf_lf
 
 map <c-j> cd ~
 map <c-w> cd ~/workspace
-/* map gc cd ~/.config */
-/* map gb cd ~/.local/bin */

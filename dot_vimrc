@@ -22,7 +22,8 @@ set laststatus=2 "总是显示状态栏
 set termguicolors
 " ==========================  Search & Replace =================================
 set ignorecase "搜索的时候大小写不敏感
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard=unnamedplus,unnamed
 " ========================== The width of Tap ======================================
 set tabstop=2 "设置 tab 宽度为2
 set shiftwidth=2  "按退格键时可以一次删除2个空格
@@ -34,8 +35,9 @@ set smarttab
 " ========================== key mapping ======================================
 let mapleader = ","
 nmap <silent><leader>n :bnext<CR>
-map <silent><leader>y "+y
-map <silent><leader>p "+p
+nmap <silent><leader>N :bprevious<CR>
+map <leader>y "+y
+map <leader>p "+p
 map <silent><c-k> <C-w><Up>
 map <silent><c-j> <C-w><Down>
 map <silent><c-l> <C-w><Right>
@@ -56,6 +58,7 @@ nmap <silent><c-p> :Files<CR>
 " nmap <silent><leader>/ :Lines<CR>
 " nmap <silent><leader>/gc :Commits<CR>
 " nmap <silent><leader>/gb :BCommits<CR>
+nmap <silent><leader>/b :Buffers<CR>
 nmap <silent><leader>// :Rg<CR>
 " ========================== VimPlug ======================================
 call plug#begin('~/.vim/plugged')
@@ -85,6 +88,8 @@ Plug 'pseewald/vim-anyfold'
 Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'mg979/vim-visual-multi'
 Plug 'uiiaoo/java-syntax.vim'
+Plug 'tpope/vim-surround'
+" Plug 'neomake/neomake'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 
@@ -302,7 +307,7 @@ let g:airline#extensions#coc#enabled = 1
 " let g:coc_global_extensions = ['coc-highlight']
 " let g:coc_global_extensions = ['coc-spell-checker']
 " let g:coc_global_extensions = [coc-project']
-let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml']
+let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver']
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType * let b:coc_pairs_disabled = ['<']
 "====================== fzf ====================

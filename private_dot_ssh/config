@@ -5,8 +5,8 @@ Host github.com
 		#   linux use nc
 		ProxyCommand nc -X 5 -x 127.0.0.1:7777 %h %p
 Host gitlab.ximalaya.com
-		Hostname github.com
+		Hostname gitlab.ximalaya.com
 		ServerAliveInterval 55
 		ForwardAgent yes
 		#   linux use nc
-		ProxyCommand nc -X 5 -x 127.0.0.1:8888 %h %p
+		# ProxyCommand nc -X 5 -x 127.0.0.1:8888 %h %p

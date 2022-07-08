@@ -90,6 +90,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'tpope/vim-surround'
 " Plug 'neomake/neomake'
+Plug 'luochen1990/rainbow'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 
@@ -125,6 +126,7 @@ let NERDTreeHighlightCursorline=1
 " let g:indentLine_setConceal = 0 "indentLine 会隐藏json文件的冒号,使用起来非常不便
 let g:indentLine_fileTypeExclude = ['json'] "上面的配置会导致indentline功能丧失,先暂时过滤掉json文件吧
 hi Cursor          guifg=#FF0000 guibg=#F8F8F0 "高亮光标所在位置,避免搜索高亮的冲突
+let g:rainbow_active = 1
 "keep cursor in the middle all the time :)
 nnoremap k kzz
 nnoremap j jzz

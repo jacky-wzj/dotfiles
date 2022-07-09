@@ -48,7 +48,7 @@ cmd fzf_search ${{
     [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
 }}
 
-map gs :fzf_search
+map s :fzf_search
 map <c-f> :fzf_jump
 map f fzf_lf 
 

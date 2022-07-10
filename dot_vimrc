@@ -34,38 +34,31 @@ set smarttab
 
 " ========================== key mapping ======================================
 let mapleader = ","
-nmap <silent><leader>n :bnext<CR>
-nmap <silent><leader>N :bprevious<CR>
 map <leader>y "+y
 map <leader>p "+p
 map <silent><c-k> <C-w><Up>
 map <silent><c-j> <C-w><Down>
 map <silent><c-l> <C-w><Right>
 map <silent><c-h> <C-w><Left>
-map <silent><leader>jj <C-w>10+        "屏幕下移
-map <silent><leader>kk <C-w>10-        "屏幕上移
-map <silent><leader>hh <C-w>30<
-map <silent><leader>ll <C-w>30>
-map <silent><leader>/n :NERDTreeToggle<CR>
+map <silent><leader>,j <C-w>10+        "屏幕下移
+map <silent><leader>,k <C-w>10-        "屏幕上移
+map <silent><leader>,h <C-w>30<
+map <silent><leader>,l <C-w>30>
 " map <silent><leader>rr :NERDTree %:p:h<CR>    "刷新 NERDTree 到当前目录
-nmap <silent><leader>/t :TagbarToggle<CR> 
-" nmap <F8> :TagbarToggle<CR>
 " nmap <silent><leader>/g :GundoToggle<CR>
-nnoremap <silent><c-h> :nohl<CR>
-" nmap <silent><c-p> :Files!<CR>
+nnoremap <silent><leader>,n :nohl<CR>
+nmap <silent><leader>m :NERDTreeToggle<CR>
+nmap <silent><leader>b :Buffers<CR>
+nmap <silent><leader>N :bprevious<CR>
+nmap <silent><leader>n :bnext<CR>
+nmap <silent><leader>t :TagbarToggle<CR> 
+nmap <silent><leader>/ :Rg<CR>
 nmap <silent><c-p> :Files<CR>
-" nmap <silent><leader>/b :BLines<CR>
-" nmap <silent><leader>/ :Lines<CR>
-" nmap <silent><leader>/gc :Commits<CR>
-" nmap <silent><leader>/gb :BCommits<CR>
-nmap <silent><leader>/b :Buffers<CR>
-nmap <silent><leader>// :Rg<CR>
 " ========================== VimPlug ======================================
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree' 
-"Plug 'kien/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons' "增加符号标识,依赖 nerd-fonts
 Plug 'preservim/tagbar' "依赖tags，需要单独安装,可以用coc 替代
 Plug 'Yggdroot/indentLine' "缩进显示
@@ -305,44 +298,21 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " airline show coc status
 let g:airline#extensions#coc#enabled = 1
-" add coc extensions
-" let g:coc_global_extensions = ['coc-highlight']
-" let g:coc_global_extensions = ['coc-spell-checker']
-" let g:coc_global_extensions = [coc-project']
 let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver']
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType * let b:coc_pairs_disabled = ['<']
 "====================== fzf ====================
-" This is the default extra key bindings
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - Popup window
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
-
-" - Window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10new' }
+" using TMUX
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,80%' }
+else
+  " - Popup window
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+endif
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -366,12 +336,39 @@ let g:fzf_colors =
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" Terminal colors for seoul256 color scheme
+if has('nvim')
+  let g:terminal_color_0 = '#4e4e4e'
+  let g:terminal_color_1 = '#d68787'
+  let g:terminal_color_2 = '#5f865f'
+  let g:terminal_color_3 = '#d8af5f'
+  let g:terminal_color_4 = '#85add4'
+  let g:terminal_color_5 = '#d7afaf'
+  let g:terminal_color_6 = '#87afaf'
+  let g:terminal_color_7 = '#d0d0d0'
+  let g:terminal_color_8 = '#626262'
+  let g:terminal_color_9 = '#d75f87'
+  let g:terminal_color_10 = '#87af87'
+  let g:terminal_color_11 = '#ffd787'
+  let g:terminal_color_12 = '#add4fb'
+  let g:terminal_color_13 = '#ffafaf'
+  let g:terminal_color_14 = '#87d7d7'
+  let g:terminal_color_15 = '#e4e4e4'
+else
+  let g:terminal_ansi_colors = [
+    \ '#4e4e4e', '#d68787', '#5f865f', '#d8af5f',
+    \ '#85add4', '#d7afaf', '#87afaf', '#d0d0d0',
+    \ '#626262', '#d75f87', '#87af87', '#ffd787',
+    \ '#add4fb', '#ffafaf', '#87d7d7', '#e4e4e4'
+  \ ]
+endif
 "======================= TComments ======================
 let g:tcomment_maps = 0 "注释掉自带的映射,原映射搞的太多太复杂了
-nmap <leader>;c <Plug>TComment_<c-_><c-_>
-vmap <leader>;c <Plug>TComment_<c-_><c-_>
-nmap <leader>;b <Plug>TComment_<c-_>b
-xmap <leader>;b <Plug>TComment_<c-_>b
+nmap <leader>,c <Plug>TComment_<c-_><c-_>
+vmap <leader>,c <Plug>TComment_<c-_><c-_>
+nmap <leader>,b <Plug>TComment_<c-_>b
+xmap <leader>,b <Plug>TComment_<c-_>b
 "==================== vim-anyfold ==========================
 autocmd Filetype * AnyFoldActivate
 let g:anyfold_fold_comments=1

@@ -142,6 +142,7 @@ bindkey -s '^o' 'lfcd^M'
 export FZF_DEFAULT_OPTS="--height=95% --layout=reverse --info=inline --border --margin=1  --padding=1"
 export FZF_CTRL_T_OPTS="--height=95% --layout=reverse --info=inline --border --margin=1  --padding=1 --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_DEFAULT_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
+export FZF_CTRL_T_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 export FZF_ALT_C_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type d"
 bindkey -s '^t' 'fzf_rg.sh^M'
 

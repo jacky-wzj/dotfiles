@@ -40,6 +40,7 @@ map <silent><c-k> <C-w><Up>
 map <silent><c-j> <C-w><Down>
 map <silent><c-l> <C-w><Right>
 map <silent><c-h> <C-w><Left>
+nnoremap <silent><c-x> :bd<CR>
 map <silent><leader>,j <C-w>10+        "屏幕下移
 map <silent><leader>,k <C-w>10-        "屏幕上移
 map <silent><leader>,h <C-w>30<
@@ -84,6 +85,8 @@ Plug 'uiiaoo/java-syntax.vim'
 Plug 'tpope/vim-surround'
 " Plug 'neomake/neomake'
 Plug 'luochen1990/rainbow'
+Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 
@@ -142,7 +145,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -175,11 +178,11 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" if has('nvim')
+"   inoremap <silent><expr> <c-space> coc#refresh()
+" else
+    " inoremap <silent><expr> <c-@> coc#refresh()
+" endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -380,3 +383,6 @@ let g:anyfold_motion=0 "关闭映射
 if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 endif
+" ====================== lf-vim =======================
+let g:lf_width=0.85
+let g:lf_height=0.85

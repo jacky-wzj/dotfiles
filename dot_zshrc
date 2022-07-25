@@ -83,8 +83,8 @@ plugins=(
   sudo
   zsh-autosuggestions
   zsh-syntax-highlighting
-  asdf
   tmux
+  asdf
 )
 # plugins=(
 #     git
@@ -169,3 +169,24 @@ alias gst='git status'
 
 #asdf java
 . ~/.asdf/plugins/java/set-java-home.zsh
+# export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+# export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'  //只能使用1.8(android sdk) , 直接修改sdkmanager
+# export PATH=$JAVA_HOME/bin:$PATH 
+
+#asdf flutter
+export FLUTTER_ROOT="/home/jacky/.asdf/installs/flutter/3.0.5-stable"
+export PATH=$FLUTTER_ROOT/bin:$PATH 
+# export FLUTTER_ROOT="$(asdf where flutter)"
+# export ANDROID_SDK_ROOT='/opt/android-sdk'
+export ANDROID_SDK_ROOT="/home/jacky/android-sdk"
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+
+# 镜像
+export PUB_HOSTED_URL=https://mirrors.tuna.tsinghua.edu.cn/dart-pub
+export FLUTTER_STORAGE_BASE_URL=https://mirrors.tuna.tsinghua.edu.cn/flutter
+
+
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable

@@ -41,7 +41,7 @@ dwmblocks &
 # gocaudices  &
 
 # 锁屏
-xscreensaver -no-splash &
+# xscreensaver -no-splash &
 
 # 设置屏幕
 # xrandr --dpi 120

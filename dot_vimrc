@@ -47,10 +47,10 @@ map <silent><leader>,j <C-w>10+        "屏幕下移
 map <silent><leader>,k <C-w>10-        "屏幕上移
 map <silent><leader>,h <C-w>30<
 map <silent><leader>,l <C-w>30>
-" nmap <silent><leader>/g :GundoToggle<CR>
 nnoremap <silent><leader>,n :nohl<CR>
 " map <silent><leader>rr :NERDTree %:p:h<CR>    "刷新 NERDTree 到当前目录
-" nmap <silent><leader>m :NERDTreeToggle<CR>
+nmap <silent><leader>u :UndotreeToggle<CR>
+nmap <silent><leader>m :NERDTreeToggle<CR>
 nmap <silent><leader>b :Buffers<CR>
 nmap <silent><leader>N :bprevious<CR>
 nmap <silent><leader>n :bnext<CR>
@@ -61,11 +61,11 @@ nmap <silent><c-p> :Files<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'preservim/nerdtree' "用lf替换了 
+Plug 'preservim/nerdtree' "用lf替换了 
 Plug 'ryanoasis/vim-devicons' "增加符号标识,依赖 nerd-fonts
 Plug 'preservim/tagbar' "依赖tags，需要单独安装,可以用coc 替代
 Plug 'Yggdroot/indentLine' "缩进显示
-Plug 'sjl/gundo.vim' "此次文本编辑记录, 依赖 python
+Plug 'mbbill/undotree'
 "Plug 'dyng/ctrlsf.vim' "依赖ack
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' 
@@ -73,10 +73,6 @@ Plug 'tpope/vim-fugitive' "依赖git
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown' "不使用折叠，显示栅栏，关闭快捷键，只使用高亮
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-" markdown-preview 可能会安装失败,需要手动触发一次安装
-" :source %
-" :PluginInstall
-" :call mkdp#util#install()
 Plug 'flazz/vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "依赖nodejs
 Plug 'tomtom/tcomment_vim'
@@ -91,6 +87,7 @@ Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'axiaoxin/vim-json-line-format'
 " Plug 'leshill/vim-json'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 
@@ -102,8 +99,6 @@ set guioptions-=b " 隐藏底部滚动条
 " =====================color scheme =============
 " colorscheme molokai
 colorscheme gruvbox
-" let g:gruvbox_contrast_dark='hard'
-" set background=dark
 " colorscheme solarized
 " =====================Customize ==============
 let g:airline_powerline_fonts = 1
@@ -114,13 +109,13 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:tagbar_position = 'left'
 let g:tex_conceal = ""
-" " autocmd vimenter * NERDTree  "NERDTree 启动时开启
+" autocmd vimenter * NERDTree  "NERDTree 启动时开启
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "NERDTree 随最后一个窗口关闭
-" let NERDTreeWinPos="right" "NERDTree 在右侧显示
-" let NERDTreeShowHidden=1 " show hidden file
-" let NERDTreeDirArrows=1 "Show Node model
-" let NERDTreeShowLineNumbers=1 "Show line number
-" let NERDTreeHighlightCursorline=1
+let NERDTreeWinPos="right" "NERDTree 在右侧显示
+let NERDTreeShowHidden=1 " show hidden file
+let NERDTreeDirArrows=1 "Show Node model
+let NERDTreeShowLineNumbers=1 "Show line number
+let NERDTreeHighlightCursorline=1
 " let g:indentLine_setConceal = 0 "indentLine 会隐藏json文件的冒号,使用起来非常不便
 let g:indentLine_fileTypeExclude = ['json'] "上面的配置会导致indentline功能丧失,先暂时过滤掉json文件吧
 hi Cursor          guifg=#FF0000 guibg=#F8F8F0 "高亮光标所在位置,避免搜索高亮的冲突
@@ -222,8 +217,8 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>,f  <Plug>(coc-format-selected)
+nmap <leader>,f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -303,7 +298,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " airline show coc status
 let g:airline#extensions#coc#enabled = 1
-let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver','coc-flutter']
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType * let b:coc_pairs_disabled = ['<']
 "====================== fzf ====================

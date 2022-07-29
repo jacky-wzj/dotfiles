@@ -88,6 +88,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'axiaoxin/vim-json-line-format'
 " Plug 'leshill/vim-json'
 Plug 'dart-lang/dart-vim-plugin'
+" Plug 'fatih/vim-go'
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
 set guioptions-=m " 隐藏菜单栏 

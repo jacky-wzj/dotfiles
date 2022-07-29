@@ -144,10 +144,10 @@ export FZF_CTRL_T_OPTS="--height=95% --layout=reverse --info=inline --border --m
 export FZF_DEFAULT_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 export FZF_CTRL_T_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 export FZF_ALT_C_COMMAND="fd --follow --hidden --exclude={.git,.idea,.sass-cache,node_modules,build} --type d"
-bindkey -s '^t' 'fzf_rg.sh^M'
+bindkey -s '^f' 'fzf_rg.sh^M'
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source /home/jacky/.local/bin/fzf-completion.zsh
+source /home/jacky/.local/bin/fzf-key-bindings.zsh
 
 # nodejs yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

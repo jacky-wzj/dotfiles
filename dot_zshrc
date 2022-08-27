@@ -167,6 +167,8 @@ alias gl='git pull'
 alias gp='git push'
 alias gst='git status'
 
+alias alias-pdf='zathura'
+
 #asdf java
 . ~/.asdf/plugins/java/set-java-home.zsh
 # export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'

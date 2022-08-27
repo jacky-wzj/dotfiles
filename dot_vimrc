@@ -111,12 +111,12 @@ Plug 'lfv89/vim-interestingwords'
 " go install github.com/lighttiger2505/sqls@latest
 call plug#end()
 " ==================== Toggle Menu and Toolbar =====================
-set guioptions-=m " 隐藏菜单栏 
-set guioptions-=T " 隐藏工具栏 
-set guioptions-=L " 隐藏左侧滚动条 
-set guioptions-=r " 隐藏右侧滚动条 
-set guioptions-=b " 隐藏底部滚动条 
-"set showtabline=0 " 隐藏Tab栏 
+" set guioptions-=m " 隐藏菜单栏 
+" set guioptions-=T " 隐藏工具栏 
+" set guioptions-=L " 隐藏左侧滚动条 
+" set guioptions-=r " 隐藏右侧滚动条 
+" set guioptions-=b " 隐藏底部滚动条 
+" set showtabline=0 " 隐藏Tab栏 
 " =====================color scheme =============
 " colorscheme molokai
 colorscheme gruvbox
@@ -431,7 +431,10 @@ nnoremap <unique> <C-u> <cmd>call smoothie#do("\<C-U>") <CR>
 vnoremap <unique> <C-u> <cmd>call smoothie#do("\<C-U>") <CR>
 " ====================== dadbod-ui =======================
 let g:dbs = {
-      \  'dev': 'postgres://postgres:mypassword@localhost:5432/my-dev-db'
+      \  'xmkp-grouth'         : 'mysql://bi:LsU7a0CGvXlF@192.168.1.161:3307/xmkp_growth',
+      \  'xmkp_trade_payment'  : 'mysql://naliworld:password!@192.168.1.161:3307/xmkp_trade_payment',
+      \  'QA'                  : 'mysql://naliworld:password!@192.168.1.161:3307',
+      \  'xmkp-edu'            : 'mysql://naliworld:password!@192.168.1.161:3307/xmkp_edu'
       \ }
 " ====================== vim-translator =======================
 let g:translator_target_lang='zh'
@@ -469,5 +472,20 @@ let g:startify_lists = [
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
 " ====================== vim-sessions =======================
-let g:session_autosave='yes'
-let g:session_autoload='yes'
+let g:session_autosave='no'
+let g:session_autoload='no'
+" let g:session_autosave_to='~/.vim/sessions'
+map <silent><leader>se : SaveSession <cr>
+set sessionoptions-=help
+" ====================== vim-bookmarks =======================
+let g:bookmark_no_default_key_mappings = 1
+nmap <Leader>,m <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mj <Plug>BookmarkNext
+nmap <Leader>mk <Plug>BookmarkPrev
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
+nmap <Leader>mkk <Plug>BookmarkMoveUp
+nmap <Leader>mjj <Plug>BookmarkMoveDown
+nmap <Leader>mg <Plug>BookmarkMoveToLine

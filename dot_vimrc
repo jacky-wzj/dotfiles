@@ -59,6 +59,8 @@ nmap <silent><leader>/ :Rg<CR>
 nmap <silent><c-p> :Files<CR>
 " ========================== VimPlug ======================================
 call plug#begin('~/.vim/plugged')
+" Plug 'lyokha/vim-xkbswitch'
+Plug 'lilydjwg/fcitx.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree' "用lf替换了 
@@ -489,3 +491,7 @@ nmap <Leader>mx <Plug>BookmarkClearAll
 nmap <Leader>mkk <Plug>BookmarkMoveUp
 nmap <Leader>mjj <Plug>BookmarkMoveDown
 nmap <Leader>mg <Plug>BookmarkMoveToLine
+
+"https://github.com/lyokha/vim-xkbswitch
+" let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchIMappings = ['cn']

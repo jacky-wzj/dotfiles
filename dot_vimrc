@@ -102,6 +102,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'axiaoxin/vim-json-line-format'
 " Plug 'leshill/vim-json'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'puremourning/vimspector'
+Plug 'gcmt/wildfire.vim'
 " Plug 'fatih/vim-go'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
@@ -322,7 +324,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " airline show coc status
 let g:airline#extensions#coc#enabled = 1
-let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver','coc-flutter','coc-sh','coc-jedi']
+let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver','coc-flutter','coc-sh','coc-jedi','coc-java-debug']
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType * let b:coc_pairs_disabled = ['<']
 "====================== fzf ====================
@@ -491,7 +493,25 @@ nmap <Leader>mx <Plug>BookmarkClearAll
 nmap <Leader>mkk <Plug>BookmarkMoveUp
 nmap <Leader>mjj <Plug>BookmarkMoveDown
 nmap <Leader>mg <Plug>BookmarkMoveToLine
+" ====================== wildfire.vim =======================
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}"]
 
-"https://github.com/lyokha/vim-xkbswitch
-" let g:XkbSwitchEnabled = 1
-" let g:XkbSwitchIMappings = ['cn']
+" ====================== vimspector =======================
+nmap <Leader>vt <Plug>VimspectorToggleBreakpoint	
+
+nmap <Leader>vc <Plug>VimspectorContinue
+
+nmap <Leader>vst <Plug>VimspectorStop
+nmap <Leader>vsc <Plug>VimspectorStepOver
+nmap <Leader>vsi <Plug>VimspectorStepInto
+nmap <Leader>vso <Plug>VimspectorStepOut
+
+nmap <Leader>vb <Plug>VimspectorBalloonEval
+xmap <Leader>vb <Plug>VimspectorBalloonEval
+
+nmap <Leader>vwr :VimspectorReset<CR>
+nmap <Leader>vwb <Plug>VimspectorBreakpoints
+nmap <Leader>vwo :VimspectorShowOutput<CR>
+" nmap <leader>vwe :VimspectorEval<CR>
+" nmap <leader>vww :VimspectorWatch<CR>
+

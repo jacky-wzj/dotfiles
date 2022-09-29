@@ -94,7 +94,6 @@ case "$1" in
     ;;
   *.md)
     exec $EDITOR -- "$@"
-    # exec $EDITOR -- "$@"
     ;;
 esac
 

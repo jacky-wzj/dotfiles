@@ -1,3 +1,51 @@
+# 输入法
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export INPUT_METHOD=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+
+fcitx5 &
+
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="google-chrome-stable"
+# export PAGER="google-chrome-stable"
+
+export PATH=$PATH:$HOME/.local/bin
+
+# go 
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/workspace/gopath
+export PATH=$PATH:$GOPATH/bin
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
+
+# 通知
+dunst &
+
+# 透明背景
+picom &
+# xcompmgr -c -C -t-5 -l-5 -r4.2 &
+
+# 壁纸
+~/.local/bin/wallpaper &
+
+# 状态栏
+export PATH=$PATH:/home/jacky/workspace/dwmblocks-async/dotfiles/.local/bin/statusbar
+# export PATH=$PATH:/home/jacky/workspace/gocaudices/artixdwm/.local/bin/statusbar
+# export PATH=$PATH:/home/jacky/workspace/gocaudices/artixdwm/.local/bin/cron
+dwmblocks &
+# gocaudices  &
+
+# 锁屏
+# xscreensaver -no-splash &
+
+# 设置屏幕
+# xrandr --dpi 120
+
 xrdb --merge .Xresources
 xrandr --output LVDS1 --auto --output HDMI1 --auto --primary --right-of LVDS1
 # xrandr --dpi 144

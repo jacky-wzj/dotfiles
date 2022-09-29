@@ -27,9 +27,9 @@ set ignorecase "搜索的时候大小写不敏感
 " set clipboard+=unnamedplus
 set clipboard=unnamedplus,unnamed
 " ========================== The width of Tap ======================================
-set tabstop=2 "设置 tab 宽度为2
+set tabstop=4 "设置 tab 宽度为2
 set shiftwidth=2  "按退格键时可以一次删除2个空格
-set softtabstop=2 "设置自动对齐空格数
+set softtabstop=4 "设置自动对齐空格数
 set expandtab " 编辑的时候将所有的 tab 设置为空格(expandtab)
 set smartindent 
 set smarttab
@@ -101,7 +101,7 @@ Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'axiaoxin/vim-json-line-format'
 " Plug 'leshill/vim-json'
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 Plug 'puremourning/vimspector'
 Plug 'gcmt/wildfire.vim'
 " Plug 'fatih/vim-go'
@@ -324,7 +324,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " airline show coc status
 let g:airline#extensions#coc#enabled = 1
-let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver','coc-flutter','coc-sh','coc-jedi','coc-java-debug']
+let g:coc_global_extensions = ['coc-json', 'coc-java', 'coc-markdownlint', 'coc-sql', 'coc-pairs','coc-xml','coc-tsserver','coc-flutter','coc-sh','coc-java-debug','coc-jedi']
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd FileType * let b:coc_pairs_disabled = ['<']
 "====================== fzf ====================
@@ -435,10 +435,14 @@ nnoremap <unique> <C-u> <cmd>call smoothie#do("\<C-U>") <CR>
 vnoremap <unique> <C-u> <cmd>call smoothie#do("\<C-U>") <CR>
 " ====================== dadbod-ui =======================
 let g:dbs = {
+      \  'xmkp'         : 'mysql://bi:LsU7a0CGvXlF@192.168.1.161:3307',
       \  'xmkp-grouth'         : 'mysql://bi:LsU7a0CGvXlF@192.168.1.161:3307/xmkp_growth',
       \  'xmkp_trade_payment'  : 'mysql://naliworld:password!@192.168.1.161:3307/xmkp_trade_payment',
       \  'QA'                  : 'mysql://naliworld:password!@192.168.1.161:3307',
-      \  'xmkp-edu'            : 'mysql://naliworld:password!@192.168.1.161:3307/xmkp_edu'
+      \  'xmkp-edu'            : 'mysql://naliworld:password!@192.168.1.161:3307/xmkp_edu',
+      \  'xxm'            : 'mysql://naliworld:password!@192.168.1.161:3306',
+      \  'xxm2' : 'mysql://naliworld:password!@192.168.3.161:3306',
+      \ 'xxm3': 'mysql:///bi:LsU7a0CGvXlF@192.168.1.161:3307'
       \ }
 " ====================== vim-translator =======================
 let g:translator_target_lang='zh'
@@ -495,7 +499,6 @@ nmap <Leader>mjj <Plug>BookmarkMoveDown
 nmap <Leader>mg <Plug>BookmarkMoveToLine
 " ====================== wildfire.vim =======================
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}"]
-
 " ====================== vimspector =======================
 nmap <Leader>vt <Plug>VimspectorToggleBreakpoint	
 

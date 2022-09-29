@@ -92,6 +92,10 @@ case "$1" in
         flashplayer "$@"
     fi
     ;;
+  *.md)
+    exec $EDITOR -- "$@"
+    # exec $EDITOR -- "$@"
+    ;;
 esac
 
 case "$(file -Lb --mime-type -- "$1")" in

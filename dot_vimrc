@@ -55,7 +55,8 @@ nmap <silent><leader>b :Buffers<CR>
 nmap <silent><leader>N :bprevious<CR>
 nmap <silent><leader>n :bnext<CR>
 nmap <silent><leader>t :TagbarToggle<CR> 
-nmap <silent><leader>/ :Rg<CR>
+nmap <silent><leader>/ :RgWord<CR>
+nmap <silent><leader>// :Rg<CR>
 nmap <silent><c-p> :Files<CR>
 " ========================== VimPlug ======================================
 call plug#begin('~/.vim/plugged')
@@ -389,6 +390,20 @@ else
     \ '#add4fb', '#ffafaf', '#87d7d7', '#e4e4e4'
   \ ]
 endif
+"Quick ripgrep word under cursor
+command! -bang -nargs=0 RgWord
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(expand('<cword>')), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 "======================= TComments ======================
 let g:tcomment_maps = 0 "注释掉自带的映射,原映射搞的太多太复杂了
 nmap <leader>,c <Plug>TComment_<c-_><c-_>

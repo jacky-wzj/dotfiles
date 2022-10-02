@@ -93,7 +93,7 @@ case "$1" in
     fi
     ;;
   *.md)
-    exec $EDITOR -- "$@"
+    exec glow "$@" -p
     ;;
 esac
 
@@ -138,8 +138,8 @@ case "$(file -Lb --mime-type -- "$1")" in
     ;;
   *)
     case "$(choose editor pager)" in
-      editor) exec $EDITOR -- "$@";;
       pager) exec $PAGER -- "$@";;
+      editor) exec $EDITOR -- "$@";;
       *) exit;;
     esac
     ;;

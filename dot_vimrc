@@ -27,8 +27,8 @@ set ignorecase "搜索的时候大小写不敏感
 " set clipboard+=unnamedplus
 set clipboard=unnamedplus,unnamed
 " ========================== The width of Tap ======================================
-set tabstop=4 "设置 tab 宽度为2
-set shiftwidth=2  "按退格键时可以一次删除2个空格
+set tabstop=4 "设置 tab 宽度为4
+set shiftwidth=4  "按退格键时可以一次删除4个空格
 set softtabstop=4 "设置自动对齐空格数
 set expandtab " 编辑的时候将所有的 tab 设置为空格(expandtab)
 set smartindent 
@@ -55,7 +55,7 @@ nmap <silent><leader>b :Buffers<CR>
 nmap <silent><leader>N :bprevious<CR>
 nmap <silent><leader>n :bnext<CR>
 nmap <silent><leader>t :TagbarToggle<CR> 
-nmap <silent><leader>/ :RgWord<CR>
+nmap <silent><leader>/ :RgWord
 nmap <silent><leader>// :Rg<CR>
 nmap <silent><c-p> :Files<CR>
 " ========================== VimPlug ======================================
@@ -533,3 +533,5 @@ nmap <Leader>vwo :VimspectorShowOutput<CR>
 " nmap <leader>vwe :VimspectorEval<CR>
 " nmap <leader>vww :VimspectorWatch<CR>
 
+" ====================== python =======================
+let g:python3_host_prog = '/usr/bin/python'

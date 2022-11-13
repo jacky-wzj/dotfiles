@@ -144,7 +144,7 @@ let NERDTreeShowLineNumbers=1 "Show line number
 let NERDTreeHighlightCursorline=1
 " let g:indentLine_setConceal = 0 "indentLine 会隐藏json文件的冒号,使用起来非常不便
 let g:indentLine_fileTypeExclude = ['json'] "上面的配置会导致indentline功能丧失,先暂时过滤掉json文件吧
-hi Cursor          guifg=#FF0000 guibg=#F8F8F0 "高亮光标所在位置,避免搜索高亮的冲突
+" hi Cursor          guifg=#FF0000 guibg=#F8F8F0 "高亮光标所在位置,避免搜索高亮的冲突
 let g:rainbow_active = 1
 "keep cursor in the middle all the time :)
 nnoremap k kzz
@@ -502,7 +502,7 @@ map <silent><leader>se : SaveSession <cr>
 set sessionoptions-=help
 " ====================== vim-bookmarks =======================
 let g:bookmark_no_default_key_mappings = 1
-nmap <Leader>,m <Plug>BookmarkToggle
+nmap <Leader>mm <Plug>BookmarkToggle
 nmap <Leader>mi <Plug>BookmarkAnnotate
 nmap <Leader>ma <Plug>BookmarkShowAll
 nmap <Leader>mj <Plug>BookmarkNext
@@ -534,4 +534,4 @@ nmap <Leader>vwo :VimspectorShowOutput<CR>
 " nmap <leader>vww :VimspectorWatch<CR>
 
 " ====================== python =======================
-let g:python3_host_prog = '/usr/bin/python'
+" let g:python3_host_prog = '/usr/bin/python'

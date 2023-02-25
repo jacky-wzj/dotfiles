@@ -47,7 +47,7 @@ map <silent><leader>,j <C-w>10+        "屏幕下移
 map <silent><leader>,k <C-w>10-        "屏幕上移
 map <silent><leader>,h <C-w>30<
 map <silent><leader>,l <C-w>30>
-nnoremap <silent><leader>,n :nohl<CR>
+nnoremap <silent><leader>/n :nohl<CR>
 " map <silent><leader>rr :NERDTree %:p:h<CR>    "刷新 NERDTree 到当前目录
 nmap <silent><leader>u :UndotreeToggle<CR>
 nmap <silent><leader>m :NERDTreeToggle<CR>
@@ -55,7 +55,7 @@ nmap <silent><leader>b :Buffers<CR>
 nmap <silent><leader>N :bprevious<CR>
 nmap <silent><leader>n :bnext<CR>
 nmap <silent><leader>t :TagbarToggle<CR> 
-nmap <silent><leader>/ :RgWord
+" nmap <silent><leader>/ :RgWord
 nmap <silent><leader>// :Rg<CR>
 nmap <silent><c-p> :Files<CR>
 " ========================== VimPlug ======================================
@@ -458,8 +458,8 @@ nnoremap <silent> <leader>h :call InterestingWords('n')<cr>
 vnoremap <silent> <leader>h :call InterestingWords('v')<cr>
 nnoremap <silent> <leader>H :call UncolorAllWords()<cr>
 
-nnoremap <silent> n :call WordNavigation(1)<cr>
-nnoremap <silent> N :call WordNavigation(0)<cr>
+nnoremap <silent> <leader>,n :call WordNavigation(1)<cr>
+nnoremap <silent> <leader>,N :call WordNavigation(0)<cr>
 " ====================== vim-undotree =======================
 if has("persistent_undo")
    let target_path = expand('~/.undodir')

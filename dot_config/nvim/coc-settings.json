@@ -8,7 +8,7 @@
     ".git",
     "pom.xml"
   ],
-  "coc.preferences.rootPatterns": [
+  "workspace.rootPatterns": [
     ".vimproject",
     ".git",
     ".project",
@@ -18,5 +18,8 @@
   "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:/home/jacky/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar",
   "flutter.sdk.flutter-lookup": "asdf which flutter",
   "languageserver": {
-  }
+  },
+  "markdownlint.config": {
+      "line-length": false
+  } 
 }

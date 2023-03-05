@@ -55,7 +55,7 @@ nmap <silent><leader>b :Buffers<CR>
 nmap <silent><leader>N :bprevious<CR>
 nmap <silent><leader>n :bnext<CR>
 nmap <silent><leader>t :TagbarToggle<CR> 
-" nmap <silent><leader>/ :RgWord
+nmap <silent><leader>/ :RgWord
 nmap <silent><leader>// :Rg<CR>
 nmap <silent><c-p> :Files<CR>
 " ========================== VimPlug ======================================

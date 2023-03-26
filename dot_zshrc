@@ -130,9 +130,10 @@ source $ZSH/oh-my-zsh.sh
 # proxy
 # alias proxy-corp="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 xmly@47.240.64.108"    
 # alias proxy-login="ssh -C -D 7777 -o ServerAliveInterval=30 -o ServerAliveCountMax=99999 root@47.240.64.108"
-alias proxy-corp="autossh -M 8880 -CD 8888  xmly@47.240.64.108 -p17777"    
-alias proxy-login="autossh -M 7770 -CD 7777 root@47.240.64.108"
-alias proxy-login-usa="autossh -M 9990 -CD 9999 root@43.153.36.103"
+# alias proxy-corp="autossh -M 8880 -CD 8888  xmly@47.240.64.108 -p17777"    
+alias proxy-login-hk="autossh -M 17777 -CD 7777 root@47.240.64.108"
+alias proxy-login-usa="autossh -M 17778 -CD 7778 root@43.153.36.103"
+alias proxy-login-sh="autossh -M 17779 -CD 7779 root@101.43.12.233"
 alias xssh="TERM=xterm-256color ssh root@47.240.64.108"
 
 # lf
